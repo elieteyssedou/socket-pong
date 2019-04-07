@@ -36,18 +36,18 @@ defmodule GameLoop do
     new_y = ball.center.y + vector.y
 
     new_x = cond do
-      round(new_x) <= 1.0 ->
+      new_x < 1.0 ->
         1.0
-      round(new_x) > Game.size_x ->
+      new_x > Game.size_x ->
         Game.size_x
       true ->
         new_x
     end
 
     new_y = cond do
-      round(new_y) <= 1.0 ->
+      new_y <= 1.0 ->
         1.0
-      round(new_y) > Game.size_y ->
+      new_y > Game.size_y ->
         Game.size_y
       true ->
         new_y
