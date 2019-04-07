@@ -1,0 +1,114 @@
+/* This file is for your main application css. */
+
+@import "./reset.css";
+
+html {
+  background: #111;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  padding: 10px;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto;
+}
+
+.info-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  height: 60px;
+  width: 60px;
+  background: none;
+  color: white;
+  border-radius: 30px;
+  border: 1px white solid;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.bar {
+  display: flex;
+  width: 20px;
+  margin: 2px -2px;
+  background-color: transparent;
+}
+
+.bar.left {
+  border-radius: 10px 0 0 10px;
+}
+
+.bar.right {
+  border-radius: 0 10px 10px 0;
+}
+
+.fadebar {
+  animation: barfadein .4s;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin: 2px;
+}
+
+.filled {
+  border: 2px solid white;
+}
+
+.empty {
+  animation: fadein .4s;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@-webkit-keyframes fadein {
+  from { border-color: white; }
+  to { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+@-webkit-keyframes barfadein {
+  from { background-color: white; }
+  to { background-color: transparent; }
+}
