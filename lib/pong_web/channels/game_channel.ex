@@ -2,7 +2,7 @@ defmodule PongWeb.GameChannel do
   use Phoenix.Channel
 
 
-  def join("game:" <> game_id, _message, socket) do
+  def join("game:" <> _game_id, _message, socket) do
     if !Process.whereis(:game_loop) do
       pid = spawn_link(GameLoop, :start, [])
       Process.register(pid, :game_loop)
