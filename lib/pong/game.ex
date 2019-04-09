@@ -101,8 +101,8 @@ defmodule Game do
   defp compute_positions(center, size_x, size_y) do
     Enum.reduce(0..(size_y - 1), [], fn(sizer_y, pos_acc) ->
       Enum.reduce(0..(size_x - 1), pos_acc, fn(sizer_x, pos_acc) ->
-        new_x = center.x - size_x + ceil(size_x / 2) + sizer_x
-        new_y = center.y - size_y + ceil(size_y / 2) + sizer_y
+        new_x = center.x - size_x + Kernel.ceil(size_x / 2) + sizer_x
+        new_y = center.y - size_y + Kernel.ceil(size_y / 2) + sizer_y
 
         [%Position{ x: new_x, y: new_y } | pos_acc]
       end)
@@ -114,15 +114,15 @@ defmodule Game do
     ball_y_direction = if (:rand.uniform(2) == 1), do: 1, else: -1
     ball_vector_y = (:rand.uniform(700) / 1000) * ball_y_direction
     ball_vector = %Position{x: 1.0 * ball_x_direction, y: ball_vector_y}
-    ball_center = %Position{x: ceil(@size_x / 2), y: ceil(@size_y / 2)}
+    ball_center = %Position{x: Kernel.ceil(@size_x / 2), y: Kernel.ceil(@size_y / 2)}
 
     player_size_x = 2
     player_size_y = 5
 
-    player_1_center = %Position{x: 4, y: ceil(@size_y / 2)}
+    player_1_center = %Position{x: 4, y: Kernel.ceil(@size_y / 2)}
     player_1_positions = compute_positions(player_1_center, player_size_x, player_size_y)
 
-    player_2_center = %Position{x: @size_x - 2, y: ceil(@size_y / 2)}
+    player_2_center = %Position{x: @size_x - 2, y: Kernel.ceil(@size_y / 2)}
     player_2_positions = compute_positions(player_2_center, player_size_x, player_size_y)
 
     %{

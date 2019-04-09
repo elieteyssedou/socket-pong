@@ -9,14 +9,14 @@ defmodule GameLoop do
     new_vector = compute_new_vector(ball, new_center)
 
     # player_2 scores
-    payload = if round(new_center.x) <= 1 do
+    payload = if Kernel.round(new_center.x) <= 1 do
       Map.merge(payload, %{ player_2: %{ score: Game.increment_player_score(:player_2) } })
     else
       payload
     end
 
     # player_2 scores
-    payload = if round(new_center.x) >= Game.size_x do
+    payload = if Kernel.round(new_center.x) >= Game.size_x do
       Map.merge(payload, %{ player_1: %{ score: Game.increment_player_score(:player_1) } })
     else
       payload
@@ -57,13 +57,13 @@ defmodule GameLoop do
   end
 
   defp compute_new_vector(ball, new_position) do
-    new_vector_x = if round(new_position.x) <= 1 || round(new_position.x) >= Game.size_x || does_position_hit_player(new_position, ball.vector, :x) do
+    new_vector_x = if Kernel.round(new_position.x) <= 1 || Kernel.round(new_position.x) >= Game.size_x || does_position_hit_player(new_position, ball.vector, :x) do
       -ball.vector.x
     else
       ball.vector.x
     end
 
-    new_vector_y = if round(new_position.y) <= 1 || round(new_position.y) >= Game.size_y || does_position_hit_player(new_position, ball.vector, :y) do
+    new_vector_y = if Kernel.round(new_position.y) <= 1 || Kernel.round(new_position.y) >= Game.size_y || does_position_hit_player(new_position, ball.vector, :y) do
       -ball.vector.y
     else
       ball.vector.y
