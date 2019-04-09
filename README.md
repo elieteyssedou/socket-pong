@@ -4,6 +4,8 @@
 
 This project was, for me, an introduction to Elixir and Phoenix. I wanted to try Phoenix Channels, the high performance of Elixir and the concurrent aspect of Erlang. What's better than an online Pong game to give it a shot ?
 
+You can try it here : https://phoenix-socket-pong.herokuapp.com/, have fun !
+
 **To start Socket Pong:**
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
