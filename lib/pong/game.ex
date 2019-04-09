@@ -19,8 +19,8 @@ defmodule Game do
   end
 
   def reset do
-    Agent.get_and_update(__MODULE__, fn state ->
-      game = new_game
+    Agent.get_and_update(__MODULE__, fn _state ->
+      game = new_game()
       {game, game}
     end)
   end
