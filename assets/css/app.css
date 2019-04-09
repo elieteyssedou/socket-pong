@@ -66,7 +66,11 @@ body {
 }
 
 .fadebar {
-  animation: barfadein .4s;
+  -webkit-animation: barfadein .4s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: barfadein .4s; /* Firefox < 16 */
+      -ms-animation: barfadein .4s; /* Internet Explorer */
+       -o-animation: barfadein .4s; /* Opera < 12.1 */
+          animation: barfadein .4s;
 }
 
 .map {
@@ -92,7 +96,11 @@ body {
 }
 
 .empty {
-  animation: fadein .4s;
+  -webkit-animation: fadein .4s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein .4s; /* Firefox < 16 */
+      -ms-animation: fadein .4s; /* Internet Explorer */
+       -o-animation: fadein .4s; /* Opera < 12.1 */
+          animation: fadein .4s;
 }
 
 .label {
@@ -103,12 +111,60 @@ body {
   font-weight: bold;
 }
 
+@keyframes fadein {
+  from { border-color: white; }
+  to { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { border-color: white; }
+  to { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
   from { border-color: white; }
   to { border-color: rgba(255, 255, 255, 0.5); }
 }
 
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { border-color: white; }
+  to { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { border-color: white; }
+  to { border-color: rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes barfadein {
+  from { background-color: white; }
+  to { background-color: transparent; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes barfadein {
+  from { background-color: white; }
+  to { background-color: transparent; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes barfadein {
+  from { background-color: white; }
+  to { background-color: transparent; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes barfadein {
+  from { background-color: white; }
+  to { background-color: transparent; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes barfadein {
   from { background-color: white; }
   to { background-color: transparent; }
 }
